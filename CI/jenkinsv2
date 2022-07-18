@@ -9,15 +9,13 @@ pipeline {
     
     stages {   
     
-     stage('Scan') {
-    steps {
-        
-            withSonarQubeEnv(installationName:'SonarQube') {
-             sh "mvn sonar:sonar"
-            }
-           
-        }
+    stage('SonarQube analysis') {
+    def scannerHome = tool 'SonarScanner 4.0';
+    withSonarQubeEnv('SonarQueb') { // If you have configured more than one global server connection, you can specify its name
+      sh "${scannerHome}/bin/sonar-scanner"
     }
+  }
+}
 
     
         stage('BUILD Image Frontend') {
