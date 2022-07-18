@@ -9,15 +9,13 @@ pipeline {
     
     stages {   
     
-     stage('Sonarqube') {
+     stage('Scan') {
     steps {
-        container('SonarQubeScanner') {
-            withSonarQubeEnv('SonarQube') {
-                sh "/usr/local/sonar-scanner"
+        
+            withSonarQubeEnv(installationName:'SonarQube') {
+                sh 'mvn clean package sonar:sonar'
             }
-            timeout(time: 10, unit: 'MINUTES') {
-                waitForQualityGate abortPipeline: true
-            }
+           
         }
     }
 }
