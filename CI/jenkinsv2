@@ -9,17 +9,14 @@ pipeline {
     
     stages {   
     
-      stage("SonarQube analysis") {
+     stage('Sonarqube') {
     steps {
-        script {
-            withSonarQubeEnv('SonarQube Server') {
-                sh '''
-                  
-                   -Dsonar.host.url=http://20.92.249.163:9000
-                   -Dsonar.login=jenkins
-                   -Dsonar.projectKey=firstproject
-                   -Dsonar.projectName=firstproject
-                '''
+        container('SonarQubeScanner') {
+            withSonarQubeEnv('SonarQube') {
+                sh "/usr/local/sonar-scanner"
+            }
+            timeout(time: 10, unit: 'MINUTES') {
+                waitForQualityGate abortPipeline: true
             }
         }
     }
