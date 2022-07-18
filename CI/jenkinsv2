@@ -11,7 +11,7 @@ pipeline {
     
      stage('SonarQube analysis') {
    steps{
-    withSonarQubeEnv('SonarQueb') { // If you have configured more than one global server connection, you can specify its name
+   withSonarQubeEnv(installationName: 'SonarQube') { 
       sh "${scannerHome}/bin/sonar-scanner"
     }
   }
