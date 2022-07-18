@@ -13,7 +13,7 @@ pipeline {
     steps {
         
             withSonarQubeEnv(installationName:'SonarQube') {
-             sh 'mvnw clean 
+             sh  mvnw clean
             }
            
         }
