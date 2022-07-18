@@ -9,17 +9,21 @@ pipeline {
     
     stages {   
     
-        stage('SonarQube analysis') {
-         def scannerHome = tool 'sonarqube';
-         withSonarQubeEnv('sonarqube') {
-         sh "${scannerHome}/bin/sonar-scanner \
-         -D sonar.login=admin \
-         -D sonar.password=admin \
-         -D sonar.projectKey=sonarqubetest \
-         -D sonar.exclusions=vendor/**,resources/**,**/*.java \
-         -D sonar.host.url=http://20.92.249.163:9000/"
-          }
+      stage("SonarQube analysis") {
+    steps {
+        script {
+            withSonarQubeEnv('SonarQube Server') {
+                sh '''
+                  ${JENKINS_HOME}/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube_Scanner/bin/sonar-scanner \
+                   -Dsonar.host.url=http://20.92.249.163:9000
+                   -Dsonar.login=jenkins
+                   -Dsonar.projectKey=firstproject
+                   -Dsonar.projectName=firstproject
+                '''
+            }
         }
+    }
+}
     
         stage('BUILD Image Frontend') {
             steps{
