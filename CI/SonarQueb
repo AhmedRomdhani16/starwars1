@@ -20,4 +20,4 @@ pipeline {
          -D sonar.host.url=http://20.92.249.163:9000/"
           }
         }
-    
+    }
