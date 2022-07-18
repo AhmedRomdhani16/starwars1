@@ -14,7 +14,7 @@ pipeline {
         script {
             withSonarQubeEnv('SonarQube Server') {
                 sh '''
-                  ${JENKINS_HOME}/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube_Scanner/bin/sonar-scanner \
+                  
                    -Dsonar.host.url=http://20.92.249.163:9000
                    -Dsonar.login=jenkins
                    -Dsonar.projectKey=firstproject
