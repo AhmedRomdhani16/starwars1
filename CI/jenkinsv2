@@ -15,7 +15,7 @@ pipeline {
       sh "${scannerHome}/bin/sonar-scanner"
     }
   }
-}
+
 
     
         stage('BUILD Image Frontend') {
@@ -86,5 +86,5 @@ pipeline {
     }
     
     
-        
+       } 
 
