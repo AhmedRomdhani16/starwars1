@@ -3,7 +3,7 @@ pipeline {
     agent {label 'jenkinsmaster'} 
     
     
-    
+    stages{
 
     
     
@@ -19,5 +19,6 @@ pipeline {
          -D sonar.exclusions=vendor/**,resources/**,**/*.java \
          -D sonar.host.url=http://20.92.249.163:9000/"
           }
+         }
         }
     }
