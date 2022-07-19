@@ -8,20 +8,21 @@ pipeline {
     
     
     stages {   
-    
-     stage('SonarQube analysis') {
-     
-     steps {
-                script {
+   
+   stage(' SonarQube analysis') {
+            steps {
+            script {
                     scannerHome = tool 'Sonar';
                 }
    
-    
-    withSonarQubeEnv(installationName:'Sonar') 
-     sh 'mvn clean package sonar:sonar'
-    }
-  }
-  
+                withSonarQubeEnv('installationName:'Sonar'') {
+                    // Optionally use a Maven environment you've configured already
+                    
+                        sh 'mvn clean package sonar:sonar'
+                    
+                }
+            }
+        }
 
 
     
