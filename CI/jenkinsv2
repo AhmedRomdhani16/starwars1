@@ -23,7 +23,7 @@ pipeline {
                 withSonarQubeEnv(installationName:'Sonar') {
                   
                     
-                        sh ' mvn -f BE/pom.xml clean sonar:sonar  '
+                        sh ' mvn -f BE/pom.xml package sonar:sonar '
                     
                 }
             }
