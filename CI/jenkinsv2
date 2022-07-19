@@ -10,13 +10,13 @@ pipeline {
     stages {   
     
      stage('SonarQube analysis') {
-   steps{
-     script {
-     scannerHome = tool 'Sonar';
-             }
+  
+     
+    def scannerHome = tool 'Sonar';
+             
    withSonarQubeEnv(installationName: 'Sonar') { 
-     sh 'mvn clean verify -P sonar:sonar' 
-    }
+    sh "${scannerHome}/bin/sonar-scanner" 
+    
   }
 }
 
