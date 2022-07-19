@@ -16,7 +16,7 @@ pipeline {
              }
    withSonarQubeEnv(installationName: 'Sonar') { 
        
-     sh ' mvn archetype:generate -DarchetypeGroupId=org.springframework.boot -DarchetypeArtifactId=spring-boot-starter-parent  '
+     sh "${scannerHome}/bin/sonar-scanner -e -Dsonar.host.url=http://localhost:9000 -Dsonar.login=firstproject -Dsonar.projectName=firstproject -Dsonar.projectKey=firstproject -Dsonar.sources=src/main/ -Dsonar.tests=src/test/ -Dsonar.java.binaries=build/**/* -Dsonar.language=java"
         
     }
   }
