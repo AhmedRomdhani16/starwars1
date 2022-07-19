@@ -2,6 +2,10 @@ pipeline {
     options { skipDefaultCheckout() }
     agent {label 'jenkinsmaster'} 
     
+     tools {
+        nodejs 'npm'
+    }
+    
     
     
  
