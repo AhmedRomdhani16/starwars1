@@ -15,7 +15,7 @@ pipeline {
      scannerHome = tool 'Sonar';
              }
    withSonarQubeEnv(installationName: 'Sonar') { 
-      sh './mvnw clean sonar:sonar' 
+      sh 'mvnw clean sonar:sonar' 
     }
   }
 }
