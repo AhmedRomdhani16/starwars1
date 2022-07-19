@@ -15,7 +15,7 @@ pipeline {
      scannerHome = tool 'Sonar';
              }
    withSonarQubeEnv(installationName: 'Sonar') { 
-      sh './mvn clean package sonar:sonar  -Dsonar.projectKey=firstproject -Dsonar.host.url=http://localhost:9000 -Dsonar.login=f81b26d27165542a14aefda6f164e9b8ba3f27f1 ' 
+      sh 'mvn clean sonar:sonar -Dsonar.projectKey=firstproject -Dsonar.host.url=http://localhost:9000 -Dsonar.login=f81b26d27165542a14aefda6f164e9b8ba3f27f1 ' 
     }
   }
 }
