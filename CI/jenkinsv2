@@ -32,7 +32,7 @@ pipeline {
          stage('Build Jar') {
             steps {
                 sh 'cd BE'
-                sh 'mvn package'
+                sh 'mvn -f BE package'
             }
         }
         
