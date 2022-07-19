@@ -15,8 +15,8 @@ pipeline {
                     scannerHome = tool 'Sonar';
                 }
    
-                withSonarQubeEnv('installationName:'Sonar'') {
-                    // Optionally use a Maven environment you've configured already
+                withSonarQubeEnv('installationName:'Sonar') {
+                  
                     
                         sh 'mvn clean package sonar:sonar'
                     
