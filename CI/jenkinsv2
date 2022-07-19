@@ -23,7 +23,7 @@ pipeline {
                 withSonarQubeEnv(installationName:'Sonar') {
                   
                     
-                        sh ' mvn -f BE package sonar:sonar '
+                        sh ' mvn clean install -f BE sonar:sonar '
                     
                 }
             }
