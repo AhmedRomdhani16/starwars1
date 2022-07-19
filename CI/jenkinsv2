@@ -15,7 +15,7 @@ pipeline {
      scannerHome = tool 'Sonar';
              }
    withSonarQubeEnv(installationName: 'Sonar') { 
-      clean verify -P sonar 
+     sh 'clean verify -P sonar' 
     }
   }
 }
