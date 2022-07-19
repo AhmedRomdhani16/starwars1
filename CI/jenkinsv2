@@ -29,6 +29,13 @@ pipeline {
             }
         }
         
+         stage('Build Jar') {
+            steps {
+                sh 'cd BE'
+                sh './mvnw package'
+            }
+        }
+        
         
    
    stage(' SonarQube analysis') {
@@ -39,8 +46,8 @@ pipeline {
    
                 withSonarQubeEnv(installationName:'Sonar') {
                   
-                    
-                        sh ' mvn clean install -f BE sonar:sonar '
+                        
+                        sh ' mvn  sonar:sonar '
                     
                 }
             }
