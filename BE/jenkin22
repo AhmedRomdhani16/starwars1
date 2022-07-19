@@ -16,16 +16,7 @@ pipeline {
              }
    withSonarQubeEnv(installationName: 'Sonar') { 
        
-     -D sonar.projectVersion=1.0-SNAPSHOT \
-       -D sonar.login=admin \
-      -D sonar.password=admin \
-      -D sonar.projectBaseDir=/var/lib/jenkins/workspace/jenkins-sonar/ \
-        -Dsonar.projectKey=firstproject \
-        -D sonar.sourceEncoding=UTF-8 \
-        -D sonar.language=java \
-        -D sonar.sources=BE/src/main/java \
-        -D sonar.tests=my-app/src/test \
-        -D sonar.host.url=http://localhost:9000/"""
+     sh 'mvn sonar:sonar'
         
     }
   }
