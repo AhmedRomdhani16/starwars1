@@ -13,9 +13,9 @@ pipeline {
       steps{
      
    
-    scannerHome = tool 'Sonar';
+    
     withSonarQubeEnv(installationName:'Sonar') { // If you have configured more than one global server connection, you can specify its name
-      sh "Sonar/bin/sonar-scanner"
+     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
     }
   }
   
