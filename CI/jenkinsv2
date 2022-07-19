@@ -4,17 +4,20 @@ pipeline {
     
     
     
-
+ 
     
     
     stages {   
     
      stage('SonarQube analysis') {
-      steps{
      
+     steps {
+                script {
+                    scannerHome = tool 'Sonar';
+                }
    
     
-    withSonarQubeEnv(installationName:'Sonar') { // If you have configured more than one global server connection, you can specify its name
+    withSonarQubeEnv(installationName:'Sonar') 
      sh 'mvn clean package sonar:sonar'
     }
   }
