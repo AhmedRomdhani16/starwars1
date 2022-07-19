@@ -15,7 +15,7 @@ pipeline {
      scannerHome = tool 'Sonar';
              }
    withSonarQubeEnv(installationName: 'Sonar') { 
-     sh 'clean verify -P sonar:sonar' 
+     sh 'mvn clean verify -P sonar:sonar' 
     }
   }
 }
