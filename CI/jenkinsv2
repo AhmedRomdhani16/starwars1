@@ -13,6 +13,19 @@ pipeline {
                 git  branch: 'main', url: 'https://github.com/AhmedRomdhani16/starwars1'
             }
         }
+        
+        stage('SonarQube Scan Code Quality') {
+            steps {
+                script {
+                    scannerHome = tool 'Sonar';
+                }
+                withSonarQubeEnv('installationName:'Sonar') {
+                  sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=quote -sonar.language=ts -Dsonar.analysis.mode=publish -Dsonar.sources=FE/src -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info -Dsonar.exclusions=node_modules/*,**/*.spec.ts"
+                }
+            }
+        }
+        
+        
    
    stage(' SonarQube analysis') {
             steps {
