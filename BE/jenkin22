@@ -16,7 +16,7 @@ pipeline {
              }
    withSonarQubeEnv(installationName: 'Sonar') { 
        
-     sh 'mvn sonar:sonar'
+     sh ' mvn sonar:sonar-DarchetypeGroupId=org.springframework.boot -DarchetypeArtifactId=spring-boot-starter-parent  '
         
     }
   }
