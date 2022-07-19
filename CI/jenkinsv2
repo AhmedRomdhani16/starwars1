@@ -13,9 +13,9 @@ pipeline {
       steps{
      
    
-    def scannerHome = tool 'Sonar';
+    scannerHome = tool 'Sonar';
     withSonarQubeEnv(installationName:'Sonar') { // If you have configured more than one global server connection, you can specify its name
-      sh "${scannerHome}/bin/sonar-scanner"
+      sh "Sonar/bin/sonar-scanner"
     }
   }
   
