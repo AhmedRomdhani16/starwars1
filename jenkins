@@ -1,0 +1,140 @@
+pipeline {    
+    options { skipDefaultCheckout() }
+    agent {label 'jenkinsmaster'} 
+    
+     tools {
+        nodejs 'npm'
+    }
+    
+    
+    environment {
+        tag = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%H'").trim()  
+        
+        }
+     
+    
+ 
+    
+    
+    stages { 
+     stage('SCM') {
+            steps {
+                git  branch: 'main', url: 'https://github.com/AhmedRomdhani16/starwars1'
+            }
+        }
+        
+        stage('SonarQube Scan Code Quality') {
+            steps {
+                script {
+                    scannerHome = tool 'Sonar';
+                }
+                withSonarQubeEnv(installationName:'Sonar') {
+                  sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=quote -Dsonar.analysis.mode=publish -Dsonar.sources=FE/src -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info -Dsonar.exclusions=node_modules/*,**/*.spec.ts"
+                }
+            }
+        }
+        
+        
+        
+   
+   stage(' SonarQube analysis') {
+            steps {
+            script {
+                    scannerHome = tool 'Sonar';
+                }
+   
+                withSonarQubeEnv(installationName:'Sonar') {
+                  
+                        
+                        sh ' mvn -f BE  sonar:sonar -Dsonar.projectKey=quote '
+                    
+                }
+            }
+        }
+
+
+    
+        stage('BUILD Image Frontend') {
+            steps{
+                checkout scm                
+                
+
+                echo "#################### Build Image Frontend  #################"
+                sh '''  
+                        docker build -t frontend:1.1.5 FE
+                       
+                '''
+            }
+        }
+        stage('TAG Image Frontend') {
+            steps{
+                echo "#################### Tag  Image ms-frontend to azurecr.io #################"
+                sh '''  
+                        
+                        docker tag frontend:1.1.5 imagedockerpaas.azurecr.io/frontend:${tag}
+                        '''
+            }
+        }
+        stage('PUSH Image Frontend') {
+            steps{
+                echo "#################### Push Image ms-frontend to azurecr.io #################"
+                sh ''' 
+
+                        docker push imagedockerpaas.azurecr.io/frontend:${tag}
+                '''
+            }
+        }
+
+        stage('BUILD Image Backend') {
+            steps{
+
+                echo "#################### Build Image Backend #################"
+                sh '''  
+                        docker build -t backend:1.1.5 BE
+                        
+                '''
+            }
+        }
+        stage('TAG Image Backend') {
+            steps{
+
+                echo "#################### Tag Image Backend #################"
+                sh '''  
+                        docker tag backend:1.1.5 imagedockerpaas.azurecr.io/backend:${tag}
+                        '''
+            }
+        }
+        stage('Push Image Backend') {
+            steps{
+
+                echo "#################### Push Image Backend #################"
+                sh '''  
+
+                        docker push imagedockerpaas.azurecr.io/backend:${tag}
+                '''
+               
+                
+                
+                
+            } 
+        } 
+        
+        
+        
+        
+        stage('Trigger Manifest Update') {
+            steps{
+
+                echo "#################### Trigger Manifest UPDATE #################"
+                
+                build job: 'updategit', parameters: [string(name: 'DOCKERTAG', value: env.tag)]
+                         
+                
+                
+            } 
+        } 
+    }
+    
+    
+       } 
+
