@@ -7,6 +7,11 @@ pipeline {
     }
     
     
+    environment {
+        tag = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%H'").trim()  
+        
+        }
+     
     
  
     
@@ -66,7 +71,7 @@ pipeline {
                 echo "#################### Tag  Image ms-frontend to azurecr.io #################"
                 sh '''  
                         
-                        docker tag frontend:1.1.5 imagedockerpaas.azurecr.io/frontend:10
+                        docker tag frontend:1.1.5 imagedockerpaas.azurecr.io/frontend:${tag}
                         '''
             }
         }
@@ -75,7 +80,7 @@ pipeline {
                 echo "#################### Push Image ms-frontend to azurecr.io #################"
                 sh ''' 
 
-                        docker push imagedockerpaas.azurecr.io/frontend:10
+                        docker push imagedockerpaas.azurecr.io/frontend:${tag}
                 '''
             }
         }
@@ -95,7 +100,7 @@ pipeline {
 
                 echo "#################### Tag Image Backend #################"
                 sh '''  
-                        docker tag backend:1.1.5 imagedockerpaas.azurecr.io/backend:10
+                        docker tag backend:1.1.5 imagedockerpaas.azurecr.io/backend:${tag}
                         '''
             }
         }
@@ -105,7 +110,7 @@ pipeline {
                 echo "#################### Push Image Backend #################"
                 sh '''  
 
-                        docker push imagedockerpaas.azurecr.io/backend:10
+                        docker push imagedockerpaas.azurecr.io/backend:${tag}
                 '''
                
                 
