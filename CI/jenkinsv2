@@ -119,6 +119,20 @@ pipeline {
             } 
         } 
         
+        
+        
+        
+        stage('Trigger Manifest Update') {
+            steps{
+
+                echo "#################### Trigger Manifest UPDATE #################"
+                
+                build job: 'updategit', parameters: [string(name: 'DOCKERTAG', value: env.tag)]
+                         
+                
+                
+            } 
+        } 
     }
     
     
