@@ -29,12 +29,6 @@ pipeline {
             }
         }
         
-         stage('Build Jar') {
-            steps {
-                sh 'cd BE'
-                sh 'mvn -f BE package'
-            }
-        }
         
         
    
