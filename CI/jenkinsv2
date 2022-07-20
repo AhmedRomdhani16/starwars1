@@ -41,7 +41,7 @@ pipeline {
                 withSonarQubeEnv(installationName:'Sonar') {
                   
                         
-                        sh ' mvn clean package -f BE  sonar:sonar -Dsonar.projectKey=quote '
+                        sh ' mvn -f BE  sonar:sonar -Dsonar.projectKey=quote '
                     
                 }
             }
