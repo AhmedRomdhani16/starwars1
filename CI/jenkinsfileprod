@@ -17,7 +17,7 @@ pipeline {
                 echo "#################### Pull Image ms-frontend to azurecr.io #################"
                 sh ''' 
 
-                        docker pull imagedockerpaas.azurecr.io/frontend:65656  
+                        docker pull imagedockerpaas.azurecr.io/frontend:khjgkjgh  
                 '''
             }
         }
@@ -27,8 +27,8 @@ pipeline {
 
                 echo "#################### Tag Image Backend #################"
                 sh '''  
-                        docker tag imagedockerpaas.azurecr.io/frontend:65656  
-                        reposittoryprod.azurecr.io/frontendprod:65656 
+                        docker tag imagedockerpaas.azurecr.io/frontend:khjgkjgh  
+                        reposittoryprod.azurecr.io/frontendprod:khjgkjgh 
                         '''
             }
         }
@@ -40,7 +40,7 @@ pipeline {
                 
                 
 
-                        docker push reposittoryprod.azurecr.io/frontendprod:65656 
+                        docker push reposittoryprod.azurecr.io/frontendprod:khjgkjgh 
                         
                         
                 '''
@@ -52,7 +52,7 @@ pipeline {
                 echo "#################### Pull Image Backend #################"
                 sh '''  
 
-                        docker pull imagedockerpaas.azurecr.io/backend:65656 
+                        docker pull imagedockerpaas.azurecr.io/backend:khjgkjgh 
                 '''
                
                 
@@ -67,8 +67,8 @@ pipeline {
 
                 echo "#################### Tag Image Backend #################"
                 sh '''  
-                        docker tag imagedockerpaas.azurecr.io/backend:65656 
-                        reposittoryprod.azurecr.io/backendprod:65656 
+                        docker tag imagedockerpaas.azurecr.io/backend:khjgkjgh 
+                        reposittoryprod.azurecr.io/backendprod:khjgkjgh 
                         '''
             }
         }
@@ -79,7 +79,7 @@ pipeline {
                 echo "#################### Push Image Backend #################"
                 sh '''  
 
-                        docker push reposittoryprod.azurecr.io/backendprod:65656 
+                        docker push reposittoryprod.azurecr.io/backendprod:khjgkjgh 
                 '''
                
                 
