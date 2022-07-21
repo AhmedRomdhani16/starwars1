@@ -16,6 +16,8 @@ node{
                 
                 echo "#################### 11111111111111  ####################"
                 
+                echo ' \'
+                
                     
                     
                    
@@ -25,7 +27,7 @@ node{
                     
                     echo "#################### 2222222222222222 #################"
                     
-                    sh "sed -i 's+imagedockerpaas.azurecr.io/frontend.*+imagedockerpaas.azurecr.io/frontend:${DOCKERTAG} '\' +g' CI/jenkinsfileprod"
+                    sh "sed -i 's+imagedockerpaas.azurecr.io/frontend.*+imagedockerpaas.azurecr.io/frontend:${DOCKERTAG} '\' +g' CI/jenkinsfileprod" 
                     
                     echo "#################### 3333333333333333333  #################"
                     
