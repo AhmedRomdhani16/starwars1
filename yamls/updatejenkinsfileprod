@@ -16,7 +16,7 @@ node{
                 
                     
                     
-                    sh "newtag= "${DOCKERTAG} \""
+                    newtag= "${DOCKERTAG} '\'"
                     
                     echo ${newtag}
                 
