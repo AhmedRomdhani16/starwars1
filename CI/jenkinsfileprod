@@ -17,7 +17,7 @@ pipeline {
                 echo "#################### Pull Image ms-frontend to azurecr.io #################"
                 sh ''' 
 
-                        docker pull imagedockerpaas.azurecr.io/frontend:bbb2fd765ae9cc3263c1d1b0c6ac1a0ee9c46e04
+                        docker pull imagedockerpaas.azurecr.io/frontend:6f8637ce6e94848dcf7151a1c8fbefd0739a1c4c
                 '''
             }
         }
@@ -27,7 +27,7 @@ pipeline {
 
                 echo "#################### Tag Image Backend #################"
                 sh '''  
-                        docker tag imagedockerpaas.azurecr.io/frontend:bbb2fd765ae9cc3263c1d1b0c6ac1a0ee9c46e04 reposittoryprod.azurecr.io/frontendprod:bbb2fd765ae9cc3263c1d1b0c6ac1a0ee9c46e04
+                        docker tag imagedockerpaas.azurecr.io/frontend:6f8637ce6e94848dcf7151a1c8fbefd0739a1c4c reposittoryprod.azurecr.io/frontendprod:6f8637ce6e94848dcf7151a1c8fbefd0739a1c4c
                         '''
             }
         }
@@ -39,7 +39,7 @@ pipeline {
                 
                 
 
-                        docker push reposittoryprod.azurecr.io/frontendprod:bbb2fd765ae9cc3263c1d1b0c6ac1a0ee9c46e04
+                        docker push reposittoryprod.azurecr.io/frontendprod:6f8637ce6e94848dcf7151a1c8fbefd0739a1c4c
                         
                         
                 '''
@@ -51,7 +51,7 @@ pipeline {
                 echo "#################### Pull Image Backend #################"
                 sh '''  
 
-                        docker pull imagedockerpaas.azurecr.io/backend:bbb2fd765ae9cc3263c1d1b0c6ac1a0ee9c46e04
+                        docker pull imagedockerpaas.azurecr.io/backend:6f8637ce6e94848dcf7151a1c8fbefd0739a1c4c
                 '''
                
                 
@@ -66,7 +66,7 @@ pipeline {
 
                 echo "#################### Tag Image Backend #################"
                 sh '''  
-                        docker tag imagedockerpaas.azurecr.io/backend:bbb2fd765ae9cc3263c1d1b0c6ac1a0ee9c46e04 reposittoryprod.azurecr.io/backendprod:bbb2fd765ae9cc3263c1d1b0c6ac1a0ee9c46e04
+                        docker tag imagedockerpaas.azurecr.io/backend:6f8637ce6e94848dcf7151a1c8fbefd0739a1c4c reposittoryprod.azurecr.io/backendprod:6f8637ce6e94848dcf7151a1c8fbefd0739a1c4c
                         '''
             }
         }
@@ -77,7 +77,7 @@ pipeline {
                 echo "#################### Push Image Backend #################"
                 sh '''  
 
-                        docker push reposittoryprod.azurecr.io/backendprod:bbb2fd765ae9cc3263c1d1b0c6ac1a0ee9c46e04
+                        docker push reposittoryprod.azurecr.io/backendprod:6f8637ce6e94848dcf7151a1c8fbefd0739a1c4c
                 '''
                
                 
