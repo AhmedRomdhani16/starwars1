@@ -61,7 +61,7 @@ node{
                     
                     echo "#################### 6666666666666666666666  #################"
                     
-                    sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/starwars1 HEAD:main"
+                    sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/starwars1 HEAD:develop"
                     
                     
                 
