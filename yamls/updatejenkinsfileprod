@@ -8,7 +8,7 @@ node{
     stage ('Update GIT'){
         script{
         
-       
+       reposittoryprod.azurecr.io/backendprod
             
                 withCredentials([usernamePassword(credentialsId: 'tockenupdate', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
                 
@@ -33,6 +33,9 @@ node{
                     sh "sed -i 's+reposittoryprod.azurecr.io/frontendprod.*+reposittoryprod.azurecr.io/frontendprod:${DOCKERTAG} '\'+g' CI/jenkinsfileprod"  
                      
                     echo "#################### 4444444444444444444  #################"
+                    
+                    sh "sed -i 's+reposittoryprod.azurecr.io/backendprod.*+reposittoryprod.azurecr.io/backendprod:${DOCKERTAG} '\'+g' CI/jenkinsfileprod"  
+                    
                     
                     sh "cat CI/jenkinsfileprod"
                     
