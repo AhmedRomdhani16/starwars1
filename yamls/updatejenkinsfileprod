@@ -30,9 +30,11 @@ node{
                     
                     echo "#################### 5555555555555555555  #################"
                     
-                    sh "sed -i 's+reposittoryprod.azurecr.io/frontendprod.*+reposittoryprod.azurecr.io/frontendprod:${DOCKERTAG} '\'+g' CI/jenkinsfileprod"  
+                     sh "sed -i 's+reposittoryprod.azurecr.io/backendprod.*+reposittoryprod.azurecr.io/backendprod:${DOCKERTAG} '\'+g' CI/jenkinsfileprod"
                               
                     echo "#################### 4444444444444444444  #################"
+                    
+                    
                     
                     
                     
