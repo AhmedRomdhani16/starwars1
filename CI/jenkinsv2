@@ -134,6 +134,18 @@ pipeline {
             } 
         } 
         
+        stage('Trigger Manifest Update Prod') {
+            steps{
+
+                echo "#################### Trigger Manifest UPDATE #################"
+                
+                build job: 'updatemanifestprod', parameters: [string(name: 'DOCKERTAG', value: env.tag)]
+                         
+                
+                
+            } 
+        } 
+        
         stage('Update jenkinsfileprod') {
             steps{
 
