@@ -8,7 +8,7 @@ node{
     stage ('Update GIT'){
         script{
         
-       reposittoryprod.azurecr.io/backendprod
+       
             
                 withCredentials([usernamePassword(credentialsId: 'tockenupdate', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
                 
