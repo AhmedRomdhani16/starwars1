@@ -27,8 +27,7 @@ pipeline {
 
                 echo "#################### Tag Image Backend #################"
                 sh '''  
-                        docker tag imagedockerpaas.azurecr.io/frontend:latest
-                        reposittoryprod.azurecr.io/frontendprod:latest
+                        docker tag imagedockerpaas.azurecr.io/frontend:latest reposittoryprod.azurecr.io/frontendprod:latest
                         '''
             }
         }
