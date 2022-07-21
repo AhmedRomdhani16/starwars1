@@ -122,7 +122,7 @@ items:
             io.kompose.service: angular-app
         spec:
           containers:
-            - image: imagedockerpaas.azurecr.io/frontend:202b5c6df7aa74b22ab59ca265170ec3e7f4e506
+            - image: imagedockerpaas.azurecr.io/frontend:642bff6bf46d2ca8c38a93dfe947dc6dbcc44cf9
               name: angular-app
               ports:
                 - containerPort: 4200
@@ -278,7 +278,7 @@ items:
                   value: password
                 - name: MYSQL_USER
                   value: root
-              image: imagedockerpaas.azurecr.io/backend:202b5c6df7aa74b22ab59ca265170ec3e7f4e506
+              image: imagedockerpaas.azurecr.io/backend:642bff6bf46d2ca8c38a93dfe947dc6dbcc44cf9
               name: springboot-app
               ports:
                 - containerPort: 8080
