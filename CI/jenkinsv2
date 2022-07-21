@@ -59,7 +59,7 @@ pipeline {
                 checkout scm                
                 
 
-                echo "#################### Build Image Frontend  #################"
+                echo "#################### Build Image Frontend  ####################"
                 sh '''  
                         docker build -t frontend:1.1.5 FE
                        
@@ -128,6 +128,18 @@ pipeline {
                 echo "#################### Trigger Manifest UPDATE #################"
                 
                 build job: 'updategit', parameters: [string(name: 'DOCKERTAG', value: env.tag)]
+                         
+                
+                
+            } 
+        } 
+        
+        stage('Trigger Manifest Update Prod') {
+            steps{
+
+                echo "#################### Trigger Manifest UPDATE #################"
+                
+                build job: 'updatemanifestprod', parameters: [string(name: 'DOCKERTAG', value: env.tag)]
                          
                 
                 
