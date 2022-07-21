@@ -1,4 +1,8 @@
 node{
+
+environment {
+        tag = "${DOCKERTAG} '\'" 
+    }
     stage('Clean Workspace') {
         cleanWs()
     }
@@ -16,7 +20,7 @@ node{
                 
                     
                     
-                    newtag= "${DOCKERTAG} '\'"
+                   
                     
                     echo ${newtag}
                 
