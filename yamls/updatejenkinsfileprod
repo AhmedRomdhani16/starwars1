@@ -13,12 +13,16 @@ node{
                 withCredentials([usernamePassword(credentialsId: 'tockenupdate', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
                 
                 echo "#################### 11111111111111  ####################"
-                sh "variable2= ' \'"
-                sh "newtag= ${DOCKERTAG} ${variable2}"
+                
+                    sh "variable2= ' \'"
+                    
+                    sh "newtag= ${DOCKERTAG} ${variable2}"
+                    
+                    echo ${newtag}
                 
                     sh "cat CI/jenkinsfileprod"
                     
-                    echo "#################### 2222222222222222  ${newtag}  #################"
+                    echo "#################### 2222222222222222 #################"
                     
                     sh "sed -i 's+imagedockerpaas.azurecr.io/frontend.*+imagedockerpaas.azurecr.io/frontend:${DOCKERTAG} '\' +g' CI/jenkinsfileprod"
                     
