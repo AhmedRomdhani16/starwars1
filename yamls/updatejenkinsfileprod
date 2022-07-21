@@ -1,8 +1,6 @@
 node{
 
-environment {
-        tag = "${DOCKERTAG} '\'" 
-    }
+
     stage('Clean Workspace') {
         cleanWs()
     }
@@ -21,8 +19,7 @@ environment {
                     
                     
                    
-                    
-                    echo ${newtag}
+                   
                 
                     sh "cat CI/jenkinsfileprod"
                     
