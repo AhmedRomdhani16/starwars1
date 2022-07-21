@@ -10,13 +10,13 @@ node{
             
                 withCredentials([usernamePassword(credentialsId: 'tockenupdate', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]){
                 echo "#################### 11111111111111  ####################"
-                    sh "cat yamls/manifestprod.yaml"
+                    sh "cat yamls2/manifestprod.yaml"
                     echo "#################### 2222222222222222  #################"
-                    sh "sed -i 's+reposittoryprod.azurecr.io/frontendprod.*+reposittoryprod.azurecr.io/frontendprod:${DOCKERTAG}+g' yamls/manifestprod.yaml"
+                    sh "sed -i 's+reposittoryprod.azurecr.io/frontendprod.*+reposittoryprod.azurecr.io/frontendprod:${DOCKERTAG}+g' yamls2/manifestprod.yaml"
                     echo "#################### 3333333333333333333  #################"
-                    sh "sed -i 's+reposittoryprod.azurecr.io/backendprod.*+reposittoryprod.azurecr.io/backendprod:${DOCKERTAG}+g' yamls/manifestprod.yaml"
+                    sh "sed -i 's+reposittoryprod.azurecr.io/backendprod.*+reposittoryprod.azurecr.io/backendprod:${DOCKERTAG}+g' yamls2/manifestprod.yaml"
                     echo "#################### 4444444444444444444  #################"
-                    sh "cat yamls/manifestprod.yaml"
+                    sh "cat yamls2/manifestprod.yaml"
                     echo "#################### 55555555555555555555  #################"
                     sh "git add ."
                     echo "#################### 555555555555555555555555555  #################"
