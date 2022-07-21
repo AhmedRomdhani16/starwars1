@@ -10,7 +10,7 @@ items:
       labels:
         io.kompose.service: angular-app
       name: angular-app
-      namespace: develop
+      namespace: prod
     spec:
       ports:
         - name: "4200"
@@ -33,7 +33,7 @@ items:
       labels:
         io.kompose.service: mysql-db
       name: mysql-db
-      namespace: develop
+      namespace: prod
     spec:
       ports:
         - name: "3306"
@@ -56,7 +56,7 @@ items:
       labels:
         io.kompose.service: php-my-admin
       name: php-my-admin
-      namespace: develop
+      namespace: prod
     spec:
       ports:
         - name: "8081"
@@ -81,7 +81,7 @@ items:
       labels:
         io.kompose.service: springboot-app
       name: springboot-app
-      namespace: develop
+      namespace: prod
     spec:
       ports:
         - name: "8080"
@@ -105,7 +105,7 @@ items:
       labels:
         io.kompose.service: angular-app
       name: angular-app
-      namespace: develop
+      namespace: prod
     spec:
       replicas: 1
       selector:
@@ -122,10 +122,7 @@ items:
             io.kompose.service: angular-app
         spec:
           containers:
-
-
-            - image: imagedockerpaas.azurecr.io/frontend:d15c317bcd999252ba91d0f58eea33b2cc11231d
-
+            - image: reposittoryprod.azurecr.io/frontendprod:a948cfc63e3f36736924c4343e2e036f3791db3a
               name: angular-app
               ports:
                 - containerPort: 4200
@@ -146,7 +143,7 @@ items:
       labels:
         io.kompose.service: mysql-db
       name: mysql-db
-      namespace: develop
+      namespace: prod
     spec:
       replicas: 2
       selector:
@@ -194,7 +191,7 @@ items:
       labels:
         io.kompose.service: mysql-db-claim0
       name: mysql-db-claim0
-      namespace: develop
+      namespace: prod
     spec:
       accessModes:
         - ReadWriteOnce
@@ -216,7 +213,7 @@ items:
       labels:
         io.kompose.service: php-my-admin
       name: php-my-admin
-      namespace: develop
+      namespace: prod
     spec:
       replicas: 1
       selector:
@@ -255,7 +252,7 @@ items:
       labels:
         io.kompose.service: springboot-app
       name: springboot-app
-      namespace: develop
+      namespace: prod
     spec:
       replicas: 2
       selector:
@@ -281,10 +278,7 @@ items:
                   value: password
                 - name: MYSQL_USER
                   value: root
-
-
-              image: imagedockerpaas.azurecr.io/backend:d15c317bcd999252ba91d0f58eea33b2cc11231d
-
+              image: reposittoryprod.azurecr.io/backendprod:a948cfc63e3f36736924c4343e2e036f3791db3a
               name: springboot-app
               ports:
                 - containerPort: 8080
@@ -293,4 +287,3 @@ items:
     status: {}
 kind: List
 metadata: {}
-
