@@ -1,0 +1,99 @@
+
+pipeline {    
+    options { skipDefaultCheckout() }
+    agent {label 'jenkinsmaster'} 
+    
+     
+     
+    stages { 
+    
+    stage('SCM') {
+            steps {
+                git  branch: 'main', url: 'https://github.com/AhmedRomdhani16/starwars1'
+            }
+        }
+    stage('PULL Image Frontend') {
+            steps{
+            
+                echo "#################### Pull Image ms-frontend to azurecr.io #################"
+                sh ''' 
+
+                        docker pull imagedockerpaas.azurecr.io/frontend:83fa36d4a262a5e0063e40c0d8b5d25d3e975734
+                '''
+            }
+        }
+        
+        stage('TAG Image Frontend') {
+            steps{
+
+                echo "#################### Tag Image Backend #################"
+                sh '''  
+                        docker tag imagedockerpaas.azurecr.io/frontend:83fa36d4a262a5e0063e40c0d8b5d25d3e975734 reposittoryprod.azurecr.io/frontendprod:83fa36d4a262a5e0063e40c0d8b5d25d3e975734prod
+                        '''
+            }
+        }
+        
+        stage('PUSH Image Frontend') {
+            steps{
+                echo "#################### Push Image ms-frontend to azurecr.io #################"
+                sh ''' 
+                
+                
+
+                        docker push reposittoryprod.azurecr.io/frontendprod:83fa36d4a262a5e0063e40c0d8b5d25d3e975734prod
+                        
+                        
+                '''
+            }
+        }
+        stage('Pull Image Backend') {
+            steps{
+
+                echo "#################### Pull Image Backend #################"
+                sh '''  
+
+                        docker pull imagedockerpaas.azurecr.io/backend:83fa36d4a262a5e0063e40c0d8b5d25d3e975734
+                '''
+               
+                
+                
+                
+            } 
+        } 
+        
+        
+        stage('TAG Image Backend') {
+            steps{
+
+                echo "#################### Tag Image Backend #################"
+                sh '''  
+                        docker tag imagedockerpaas.azurecr.io/backend:83fa36d4a262a5e0063e40c0d8b5d25d3e975734 reposittoryprod.azurecr.io/backendprod:83fa36d4a262a5e0063e40c0d8b5d25d3e975734prod
+                        '''
+            }
+        }
+        
+        stage('Push Image Backend') {
+            steps{
+
+                echo "#################### Push Image Backend #################"
+                sh '''  
+
+                        docker push reposittoryprod.azurecr.io/backendprod:83fa36d4a262a5e0063e40c0d8b5d25d3e975734prod
+                '''
+               
+                
+                
+                
+            } 
+        } 
+
+    
+    
+    
+        }
+    
+    
+    
+    
+    
+    }
