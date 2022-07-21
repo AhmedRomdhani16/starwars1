@@ -18,7 +18,7 @@ node{
                 
                 
                 var = '\\'
-                varr = "${DOCKERTAG} ${var}"
+                varr = "${DOCKERTAG}${var}"
                 echo varr
                     sh "cat CI/jenkinsfileprod"
                     
