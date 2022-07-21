@@ -17,25 +17,25 @@ node{
                 echo "#################### 11111111111111  ####################"
                 
                 
-               echo "\\"
+               
                 
                     sh "cat CI/jenkinsfileprod"
                     
                     echo "#################### 2222222222222222 #################"
                     
-                    sh "sed -i 's+imagedockerpaas.azurecr.io/frontend.*+imagedockerpaas.azurecr.io/frontend:${DOCKERTAG} '\' +g' CI/jenkinsfileprod" 
+                    sh "sed -i 's+imagedockerpaas.azurecr.io/frontend.*+imagedockerpaas.azurecr.io/frontend:${DOCKERTAG} '\\' +g' CI/jenkinsfileprod" 
                     
                     echo "#################### 3333333333333333333  #################"
                     
-                    sh "sed -i 's+imagedockerpaas.azurecr.io/backend.*+imagedockerpaas.azurecr.io/backend:${DOCKERTAG} '\'+g' CI/jenkinsfileprod"
+                    sh "sed -i 's+imagedockerpaas.azurecr.io/backend.*+imagedockerpaas.azurecr.io/backend:${DOCKERTAG} '\\'+g' CI/jenkinsfileprod"
                     
                     echo "#################### 44444444444444444  #################"
                     
-                    sh "sed -i 's+reposittoryprod.azurecr.io/frontendprod.*+reposittoryprod.azurecr.io/frontendprod:${DOCKERTAG} '\'+g' CI/jenkinsfileprod"
+                    sh "sed -i 's+reposittoryprod.azurecr.io/frontendprod.*+reposittoryprod.azurecr.io/frontendprod:${DOCKERTAG} '\\'+g' CI/jenkinsfileprod"
                     
                     echo "#################### 5555555555555555555  #################"
                     
-                     sh "sed -i 's+reposittoryprod.azurecr.io/backendprod.*+reposittoryprod.azurecr.io/backendprod:${DOCKERTAG} '\'+g' CI/jenkinsfileprod"
+                     sh "sed -i 's+reposittoryprod.azurecr.io/backendprod.*+reposittoryprod.azurecr.io/backendprod:${DOCKERTAG} '\\'+g' CI/jenkinsfileprod"
                               
                     echo "#################### 4444444444444444444  #################"
                     
