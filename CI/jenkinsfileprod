@@ -17,7 +17,7 @@ pipeline {
                 echo "#################### Pull Image ms-frontend to azurecr.io #################"
                 sh ''' 
 
-                        docker pull imagedockerpaas.azurecr.io/frontend:6556 
+                        docker pull imagedockerpaas.azurecr.io/frontend:2222 
                 '''
             }
         }
@@ -27,8 +27,8 @@ pipeline {
 
                 echo "#################### Tag Image Backend #################"
                 sh '''  
-                        docker tag imagedockerpaas.azurecr.io/frontend:6556 
-                        reposittoryprod.azurecr.io/frontendprod:6556 
+                        docker tag imagedockerpaas.azurecr.io/frontend:2222 
+                        reposittoryprod.azurecr.io/frontendprod:2222 
                         '''
             }
         }
@@ -40,7 +40,7 @@ pipeline {
                 
                 
 
-                        docker push reposittoryprod.azurecr.io/frontendprod:6556 
+                        docker push reposittoryprod.azurecr.io/frontendprod:2222 
                         
                         
                 '''
@@ -52,7 +52,7 @@ pipeline {
                 echo "#################### Pull Image Backend #################"
                 sh '''  
 
-                        docker pull imagedockerpaas.azurecr.io/backend:6556 
+                        docker pull imagedockerpaas.azurecr.io/backend:2222 
                 '''
                
                 
@@ -67,7 +67,7 @@ pipeline {
 
                 echo "#################### Tag Image Backend #################"
                 sh '''  
-                        docker tag imagedockerpaas.azurecr.io/backend:6556 
+                        docker tag imagedockerpaas.azurecr.io/backend:2222 
                         reposittoryprod.azurecr.io/backendprod:83fa36d4a262a5e0063e40c0d8b5d25d3e975734prod
                         '''
             }
