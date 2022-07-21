@@ -27,7 +27,7 @@ pipeline {
 
                 echo "#################### Tag Image Backend #################"
                 sh '''  
-                        docker tag imagedockerpaas.azurecr.io/frontend:latestreposittoryprod.azurecr.io/frontendprod:latest
+                        docker tag imagedockerpaas.azurecr.io/frontend:1.10.2reposittoryprod.azurecr.io/frontendprod:1.10.2
                         '''
             }
         }
@@ -39,7 +39,7 @@ pipeline {
                 
                 
 
-                        docker push reposittoryprod.azurecr.io/frontendprod:latest
+                        docker push reposittoryprod.azurecr.io/frontendprod:1.10.2
                         
                         
                 '''
@@ -66,7 +66,7 @@ pipeline {
 
                 echo "#################### Tag Image Backend #################"
                 sh '''  
-                        docker tag imagedockerpaas.azurecr.io/backend:latest reposittoryprod.azurecr.io/backendprod:latest
+                        docker tag imagedockerpaas.azurecr.io/backend:1.10.2reposittoryprod.azurecr.io/backendprod:1.10.2
                         '''
             }
         }
@@ -77,7 +77,7 @@ pipeline {
                 echo "#################### Push Image Backend #################"
                 sh '''  
 
-                        docker push reposittoryprod.azurecr.io/backendprod:latest
+                        docker push reposittoryprod.azurecr.io/backendprod:1.10.2
                 '''
                
                 
