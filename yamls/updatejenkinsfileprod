@@ -17,7 +17,7 @@ node{
                 echo "#################### 11111111111111  ####################"
                 
                 
-               echo "\n \"
+               echo "'\'"
                 
                     sh "cat CI/jenkinsfileprod"
                     
