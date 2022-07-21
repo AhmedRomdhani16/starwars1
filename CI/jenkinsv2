@@ -59,7 +59,7 @@ pipeline {
                 checkout scm                
                 
 
-                echo "#################### Build Image Frontend  #################"
+                echo "#################### Build Image Frontend  ####################"
                 sh '''  
                         docker build -t frontend:1.1.5 FE
                        
