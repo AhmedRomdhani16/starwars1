@@ -19,7 +19,7 @@ pipeline {
 
 
 
-                        docker pull imagedockerpaas.azurecr.io/frontend:172ed1d35692353aa07608fa773382309f2b7c88
+                        docker pull imagedockerpaas.azurecr.io/frontend:fe771c94726010e68fe92cd7733005ef1e75f389
 
                 '''
             }
@@ -32,7 +32,7 @@ pipeline {
                 sh '''  
 
 
-                        docker tag imagedockerpaas.azurecr.io/frontend:172ed1d35692353aa07608fa773382309f2b7c88 reposittoryprod.azurecr.io/frontendprod:172ed1d35692353aa07608fa773382309f2b7c88
+                        docker tag imagedockerpaas.azurecr.io/frontend:fe771c94726010e68fe92cd7733005ef1e75f389 reposittoryprod.azurecr.io/frontendprod:fe771c94726010e68fe92cd7733005ef1e75f389
 
                         '''
             }
@@ -47,7 +47,7 @@ pipeline {
 
 
 
-                        docker push reposittoryprod.azurecr.io/frontendprod:172ed1d35692353aa07608fa773382309f2b7c88
+                        docker push reposittoryprod.azurecr.io/frontendprod:fe771c94726010e68fe92cd7733005ef1e75f389
 
                         
                         
@@ -62,7 +62,7 @@ pipeline {
 
 
 
-                        docker pull imagedockerpaas.azurecr.io/backend:172ed1d35692353aa07608fa773382309f2b7c88
+                        docker pull imagedockerpaas.azurecr.io/backend:fe771c94726010e68fe92cd7733005ef1e75f389
 
                 '''
                
@@ -80,7 +80,7 @@ pipeline {
                 sh '''  
 
 
-                        docker tag imagedockerpaas.azurecr.io/backend:172ed1d35692353aa07608fa773382309f2b7c88 reposittoryprod.azurecr.io/backendprod:172ed1d35692353aa07608fa773382309f2b7c88
+                        docker tag imagedockerpaas.azurecr.io/backend:fe771c94726010e68fe92cd7733005ef1e75f389 reposittoryprod.azurecr.io/backendprod:fe771c94726010e68fe92cd7733005ef1e75f389
 
                         '''
             }
@@ -94,7 +94,7 @@ pipeline {
 
 
 
-                        docker push reposittoryprod.azurecr.io/backendprod:172ed1d35692353aa07608fa773382309f2b7c88
+                        docker push reposittoryprod.azurecr.io/backendprod:fe771c94726010e68fe92cd7733005ef1e75f389
 
                 '''
                
