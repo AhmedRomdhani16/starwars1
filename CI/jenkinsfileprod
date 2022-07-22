@@ -19,7 +19,7 @@ pipeline {
 
 
 
-                        docker pull imagedockerpaas.azurecr.io/frontend:b24487908539d13e5ffd52b3942184f3e76e2d2c
+                        docker pull imagedockerpaas.azurecr.io/frontend:2.0.5
 
                 '''
             }
@@ -32,7 +32,7 @@ pipeline {
                 sh '''  
 
 
-                        docker tag imagedockerpaas.azurecr.io/frontend:b24487908539d13e5ffd52b3942184f3e76e2d2c reposittoryprod.azurecr.io/frontendprod:b24487908539d13e5ffd52b3942184f3e76e2d2c
+                        docker tag imagedockerpaas.azurecr.io/frontend:2.0.5 reposittoryprod.azurecr.io/frontendprod:2.0.5
 
                         '''
             }
@@ -47,7 +47,7 @@ pipeline {
 
 
 
-                        docker push reposittoryprod.azurecr.io/frontendprod:b24487908539d13e5ffd52b3942184f3e76e2d2c
+                        docker push reposittoryprod.azurecr.io/frontendprod:2.0.5
 
                         
                         
@@ -62,7 +62,7 @@ pipeline {
 
 
 
-                        docker pull imagedockerpaas.azurecr.io/backend:b24487908539d13e5ffd52b3942184f3e76e2d2c
+                        docker pull imagedockerpaas.azurecr.io/backend:2.0.5
 
                 '''
                
@@ -80,7 +80,7 @@ pipeline {
                 sh '''  
 
 
-                        docker tag imagedockerpaas.azurecr.io/backend:b24487908539d13e5ffd52b3942184f3e76e2d2c reposittoryprod.azurecr.io/backendprod:b24487908539d13e5ffd52b3942184f3e76e2d2c
+                        docker tag imagedockerpaas.azurecr.io/backend:2.0.5 reposittoryprod.azurecr.io/backendprod:2.0.5
 
                         '''
             }
@@ -94,7 +94,7 @@ pipeline {
 
 
 
-                        docker push reposittoryprod.azurecr.io/backendprod:b24487908539d13e5ffd52b3942184f3e76e2d2c
+                        docker push reposittoryprod.azurecr.io/backendprod:2.0.5
 
                 '''
                
