@@ -124,7 +124,7 @@ items:
           containers:
 
 
-            - image: imagedockerpaas.azurecr.io/frontend:245abb7707051fec110048b29ebf7d0d93d370cf
+            - image: imagedockerpaas.azurecr.io/frontend:289e916a967eaf3e5c5f011eed3e303270868d85
 
               name: angular-app
               ports:
@@ -283,7 +283,7 @@ items:
                   value: root
 
 
-              image: imagedockerpaas.azurecr.io/backend:245abb7707051fec110048b29ebf7d0d93d370cf
+              image: imagedockerpaas.azurecr.io/backend:289e916a967eaf3e5c5f011eed3e303270868d85
 
               name: springboot-app
               ports:
